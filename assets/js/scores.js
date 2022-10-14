@@ -1,3 +1,4 @@
+
 function printHighscores() {
     // either get scores from local storage or set to empty array
     var scores = JSON.parse(localStorage.getItem("savedScores"));
