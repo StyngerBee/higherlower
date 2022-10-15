@@ -22,6 +22,8 @@ body {
 
 .gradient-bg {
     background-image: url("../images/gradientBg.png");
+    background-size: cover;
+    background-position: center;
 }
 
 /* Left-side formatting */
