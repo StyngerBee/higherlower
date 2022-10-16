@@ -20,8 +20,12 @@ function test (){
 					// renderCard(data[0].trackMetadata.displayImageUri,
 					// 		   data[0].trackMetadata.trackName,
 					// 		   data[0].chartEntryData.currentRank);
-					renderArtist_1(data[0].trackMetadata.displayImageUri)
-					renderArtist_2(data[7].trackMetadata.displayImageUri)
+					let song_1 = data[getFirstIndex(data)]
+					let song_2 = data[getSecondIndex(data)]
+					console.log(song_1);
+					console.log(song_2);
+					renderArtist_1(song_1.trackMetadata.displayImageUri)
+					renderArtist_2(song_2.trackMetadata.displayImageUri)
 				})
 			}else{
 				console.log("Error: " + response.statusText)
@@ -30,6 +34,8 @@ function test (){
 };
 
 test();
+
+
 // function renderCard(cover, name, rank){
 // 	let card = document.querySelector(".card-1");
 // 	let cardImage = document.createElement("img");
@@ -50,10 +56,23 @@ let answer;
 let artist_1 = document.getElementById("artist-1");
 let artist_2 = document.getElementById("artist-2");
 
-let up_arrow = document.querySelector(".up-arrow");
-let down_arrow = document.querySelector(".down-arrow");
-
 let gameContainer = document.querySelector(".fourty");
+
+function getFirstIndex (data){
+	let firstIndex = Math.floor(Math.random()*data.length);
+	console.log(firstIndex)
+	return firstIndex
+};
+
+function getSecondIndex (data){
+	let secondIndex = Math.floor(Math.random()*data.length);
+	if(secondIndex === getFirstIndex){
+		secondIndex = getFirstIndex - 1;
+		console.log(secondIndex)
+	}else{
+		return secondIndex
+	}
+};
 
 function renderArtist_1 (data){
 	let coverArt = document.createElement("img");
@@ -82,6 +101,4 @@ function determineAnswer (){
 };
 
 determineAnswer();
-
-
 
