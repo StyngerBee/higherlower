@@ -20,12 +20,19 @@ function test (){
 					// renderCard(data[0].trackMetadata.displayImageUri,
 					// 		   data[0].trackMetadata.trackName,
 					// 		   data[0].chartEntryData.currentRank);
-					let song_1 = data[getFirstIndex(data)]
-					let song_2 = data[getSecondIndex(data)]
-					console.log(song_1);
-					console.log(song_2);
-					renderArtist_1(song_1.trackMetadata.displayImageUri)
-					renderArtist_2(song_2.trackMetadata.displayImageUri)
+					let song_1;
+					let song_2;
+					
+					arrows.forEach(arrow => {
+						arrow.addEventListener("click", ()=>{
+							getFirstIndex();
+							getSecondIndex();
+							song_1 = data[getFirstIndex()]
+							song_2 = data[getSecondIndex()]
+							renderArtist_1(song_1.trackMetadata.displayImageUri);
+							renderArtist_2(song_2.trackMetadata.displayImageUri);
+						})
+					})
 				})
 			}else{
 				console.log("Error: " + response.statusText)
@@ -34,6 +41,7 @@ function test (){
 };
 
 test();
+
 
 
 // function renderCard(cover, name, rank){
@@ -47,6 +55,7 @@ test();
 // 	card.append(cardImage, cardRank);
 // };
 // renderCard();
+let arrows = document.querySelectorAll(".arrow");
 
 let gameOver = false;
 let higher = false;
@@ -58,23 +67,18 @@ let artist_2 = document.getElementById("artist-2");
 
 let gameContainer = document.querySelector(".fourty");
 
-function getFirstIndex (data){
-	let firstIndex = Math.floor(Math.random()*data.length);
-	console.log(firstIndex)
+function getFirstIndex (){
+	let firstIndex = Math.floor(Math.random()*200);
 	return firstIndex
 };
 
-function getSecondIndex (data){
-	let secondIndex = Math.floor(Math.random()*data.length);
-	if(secondIndex === getFirstIndex){
-		secondIndex = getFirstIndex - 1;
-		console.log(secondIndex)
-	}else{
-		return secondIndex
-	}
+function getSecondIndex (){
+	let secondIndex = Math.floor(Math.random()*200);
+	return secondIndex
 };
 
 function renderArtist_1 (data){
+	artist_1.textContent = "";
 	let coverArt = document.createElement("img");
 	coverArt.style.width = "100%";
 	coverArt.src = data;
@@ -82,23 +86,34 @@ function renderArtist_1 (data){
 }
 
 function renderArtist_2 (data){
+	artist_2.textContent = "";
 	let coverArt = document.createElement("img");
 	coverArt.style.width = "100%";
 	coverArt.src = data;
 	artist_2.appendChild(coverArt);
 }
 
-function determineAnswer (){
-	gameContainer.addEventListener("click", function(e){
-		if(e.target.className === "up-arrow"){
-			console.log("Higher");
-			answer = true;
-		}else if(e.target.className === "down-arrow"){
-			console.log("Lower");
-			answer = false;
-		}
-	})
+
+function checkGameOver(){
+	if(gameOver === true){
+		console.log("Game over!")
+	}
 };
 
-determineAnswer();
+// GAME FLOW
+
+// Click on the start button.
+// Hide the homescreen. Show the game screen.
+// Get two random indexes for the array.
+// Use the array to choose two songs.
+// Render the songs to the dom.
+// Record user click.
+// reveal song rank.
+// Check if game over.
+// Add to score.
+// Get two new songs.
+// Continue until game over equals true.
+// If gameover equals true, hide game screen.
+// Display end screen.
+// Go to leaderboard or play again.
 
