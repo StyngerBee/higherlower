@@ -17,9 +17,6 @@ const options = {
 		.then(function(response){
 			if(response.ok){
 				response.json().then(function(data){
-					// renderCard(data[0].trackMetadata.displayImageUri,
-					// 		   data[0].trackMetadata.trackName,
-					// 		   data[0].chartEntryData.currentRank);
 					let song_1;
 					let song_2;
 
