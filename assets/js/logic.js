@@ -22,6 +22,8 @@ fetch('https://spotify81.p.rapidapi.com/top_200_tracks', options)
             renderArtist_1(song_1);
             renderArtist_2(song_2);
 
+			getSongRank();
+
             console.log(song_1);
             console.log(song_2);
 
@@ -31,6 +33,7 @@ fetch('https://spotify81.p.rapidapi.com/top_200_tracks', options)
                     data.unshift(song_2);
                     getUserAnswer(e);
                     getSongRank();
+					checkGameOver();
                     if(higher === answer){
                         song_1 = data[0];
                         song_2 = data[getRandomIndex().secondIndex];
@@ -42,7 +45,6 @@ fetch('https://spotify81.p.rapidapi.com/top_200_tracks', options)
                         renderArtist_1(song_1);
                         renderArtist_2(song_2);
                     };
-                        checkGameOver();
                         console.log(song_1);
                         console.log(song_2);
 
@@ -124,23 +126,27 @@ function getUserAnswer(e){
 // Function to compare the current ranks of the two songs. 
 function getSongRank(){
     if(artist_1.dataset.index < artist_2.dataset.index){
+		console.log(artist_1.dataset.index);
+		console.log(artist_2.dataset.index);
         higher = true;
     }else if(artist_1.dataset.index > artist_2.dataset.index){
         higher = false;
+		console.log(artist_1.dataset.index);
+		console.log(artist_2.dataset.index);
     }
 };
 
 //Function to check if the user is correct. If not then game over becomes true.
 function checkGameOver(){
-    if(higher === answer){
-        incrementScore();
-        console.log(score);
-        console.log("Correct!")
-    }else if(higher !== answer || answer !== higher){
-        gameOver = true;
-        //With game over being true we would eventually call an end game function here. 
-        console.log("Incorrect!")
-    }
+   if(higher === true && answer === true){
+	console.log("Correct!")
+   }else if(higher === false && answer === false){
+	console.log("Correct!");
+   }else if(higher === true && answer === false){
+	console.log("Incorrect!");
+   }else if(higher === false && answer === true){
+	console.log("Incorrect!");
+   }
 };
 
 //Function to add a point to the user score.
