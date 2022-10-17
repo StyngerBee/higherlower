@@ -1,0 +1,40 @@
+h1{
+    display: flex;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: inherit;
+    padding-top: 25px;
+}
+
+body{
+    line-height: inherit;
+    background-color: black;
+    color: #1DB954;
+}
+
+p{
+    display: flex;
+    justify-content: center;
+}
+
+a{
+    color: inherit;
+    text-decoration: inherit;
+    display: flex;
+    justify-content: center;
+}
+
+img{
+    max-width: 35%;
+    height: auto;
+    background-color: #1DB954;
+}
+
+ button {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding-left: 548px;
+    padding-top: 50px;
+    font-size: 35px;
+}
