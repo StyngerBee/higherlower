@@ -121,7 +121,6 @@ function incrementScore (){
 	return score
 }
 
-
 function checkGameOver(){
 	if(higher === answer){
 		incrementScore();
@@ -129,7 +128,7 @@ function checkGameOver(){
 	}else if(!higher === answer){
 		gameOver = true;
 		// INPUT END GAME FUNCTION HERE.
-		console.log("Incorrect!")
+		console.log("Incorrect! Game over!")
 	}
 };
 
