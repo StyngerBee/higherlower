@@ -1,3 +1,4 @@
+//API INFORMATION
 const options = {
 	method: 'GET',
 	headers: {
