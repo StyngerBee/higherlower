@@ -7,12 +7,12 @@ const options = {
 	}
 };
 
-fetch('https://spotify81.p.rapidapi.com/top_200_tracks', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
+// fetch('https://spotify81.p.rapidapi.com/top_200_tracks', options)
+// 	.then(response => response.json())
+// 	.then(response => console.log(response))
+// 	.catch(err => console.error(err));
 
-function test (){
+
 	fetch('https://spotify81.p.rapidapi.com/top_200_tracks', options)
 		.then(function(response){
 			if(response.ok){
@@ -24,13 +24,16 @@ function test (){
 					let song_2;
 					
 					arrows.forEach(arrow => {
-						arrow.addEventListener("click", ()=>{
-							getFirstIndex();
-							getSecondIndex();
+						arrow.addEventListener("click", (e)=>{
 							song_1 = data[getFirstIndex()]
 							song_2 = data[getSecondIndex()]
-							renderArtist_1(song_1.trackMetadata.displayImageUri);
-							renderArtist_2(song_2.trackMetadata.displayImageUri);
+							renderArtist_1(song_1.trackMetadata.displayImageUri, 
+											song_1.chartEntryData.currentRank);
+							renderArtist_2(song_2.trackMetadata.displayImageUri,
+											song_2.chartEntryData.currentRank);
+							determineAnswer(e);
+							getSongRank();
+							checkGameOver();
 						})
 					})
 				})
@@ -38,29 +41,15 @@ function test (){
 				console.log("Error: " + response.statusText)
 			}
 		})
-};
-
-test();
 
 
-
-// function renderCard(cover, name, rank){
-// 	let card = document.querySelector(".card-1");
-// 	let cardImage = document.createElement("img");
-// 	let cardRank = document.createElement("p");
-
-// 	cardImage.src = cover;
-// 	card.textContent = name;
-// 	cardRank.textContent = rank;
-// 	card.append(cardImage, cardRank);
-// };
-// renderCard();
 let arrows = document.querySelectorAll(".arrow");
 
 let gameOver = false;
-let higher = false;
+let higher;
 // Boolean. 
 let answer; 
+let score = 0;
 
 let artist_1 = document.getElementById("artist-1");
 let artist_2 = document.getElementById("artist-2");
@@ -77,26 +66,61 @@ function getSecondIndex (){
 	return secondIndex
 };
 
-function renderArtist_1 (data){
+function renderArtist_1 (data, rank ){
 	artist_1.textContent = "";
+
 	let coverArt = document.createElement("img");
 	coverArt.style.width = "100%";
 	coverArt.src = data;
+	artist_1.dataset.index = rank
 	artist_1.appendChild(coverArt);
 }
 
-function renderArtist_2 (data){
+function renderArtist_2 (data, rank){
 	artist_2.textContent = "";
+
 	let coverArt = document.createElement("img");
 	coverArt.style.width = "100%";
 	coverArt.src = data;
+	artist_2.dataset.index = rank
 	artist_2.appendChild(coverArt);
+}
+
+function determineAnswer(e){
+	if(e.target.classList.contains("up-arrow")){
+		answer = true;
+		console.log(answer)
+	}else if(e.target.classList.contains("down-arrow")){
+		answer = false;
+		console.log(answer);
+	}
+};
+
+function getSongRank () {
+	if(artist_1.dataset.index < artist_2.dataset.index){
+		higher = true;
+		console.log(higher)
+	}else if(artist_1.dataset.index > artist_2.dataset.index){
+		higher = false;
+		console.log(higher)
+	}
+};
+
+function incrementScore (){
+	score ++;
+	console.log(score);
+	return score
 }
 
 
 function checkGameOver(){
-	if(gameOver === true){
-		console.log("Game over!")
+	if(higher === answer){
+		incrementScore();
+		console.log("Correct!")
+	}else if(!higher === answer){
+		gameOver = true;
+		// INPUT END GAME FUNCTION HERE.
+		console.log("Incorrect!")
 	}
 };
 
