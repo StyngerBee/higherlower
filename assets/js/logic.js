@@ -2,7 +2,7 @@
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '7e06928a00msh707867a2a351098p112c16jsn62fbfdebcd93',
+		'X-RapidAPI-Key': '6b19242e27mshaaddac799972dfep1bbe51jsnba083ea5c7fd',
 		'X-RapidAPI-Host': 'spotify81.p.rapidapi.com'
 	}
 };
@@ -20,23 +20,31 @@ const options = {
 					let song_1;
 					let song_2;
 
-					song_1 = data[getFirstIndex()]
-					song_2 = data[getSecondIndex()]
-							renderArtist_1(song_1.trackMetadata.displayImageUri, 
-											song_1.chartEntryData.currentRank);
-							renderArtist_2(song_2.trackMetadata.displayImageUri,
-											song_2.chartEntryData.currentRank);
+					song_1 = data[getRandomIndex().firstIndex]
+					song_2 = data[getRandomIndex().secondIndex]
+							renderArtist_1(song_1)
+							renderArtist_2(song_2);
+
+					console.log(song_1, song_2);
 					
 					arrows.forEach(arrow => {
 						arrow.addEventListener("click", (e)=>{
-							song_1 = data[getFirstIndex()]
-							song_2 = data[getSecondIndex()]
-							renderArtist_1(song_1.trackMetadata.displayImageUri, 
-											song_1.chartEntryData.currentRank);
-							renderArtist_2(song_2.trackMetadata.displayImageUri,
-											song_2.chartEntryData.currentRank);
-							determineAnswer(e);
+							data.unshift(song_2);
+							console.log(data);
+							if(score >= 0){
+								song_1 = data[0];
+								song_2 = data[getRandomIndex().secondIndex];
+									renderArtist_1(song_1);
+									renderArtist_2(song_2);
+							}else if(score === 0){
+								song_1 = data[getRandomIndex().firstIndex];
+								song_2 = data[getRandomIndex().secondIndex];
+									renderArtist_1(song_1);
+									renderArtist_2(song_2);
+							};
+							console.log(song_1, song_2)
 							getSongRank();
+							determineAnswer(e);
 							checkGameOver();
 						})
 					})
@@ -44,7 +52,7 @@ const options = {
 			}else{
 				console.log("Error: " + response.statusText)
 			}
-		})
+		});
 
 
 let arrows = document.querySelectorAll(".arrow");
@@ -60,35 +68,34 @@ let artist_2 = document.getElementById("artist-2");
 
 let gameContainer = document.querySelector(".fourty");
 
-function getFirstIndex (){
-	let firstIndex = Math.floor(Math.random()*200);
-	return firstIndex
+function getRandomIndex (){
+	let firstIndex = Math.floor(Math.random()*200 + score);
+	let secondIndex;
+	do {
+		secondIndex = Math.floor(Math.random() * 200 + score);
+	} while(secondIndex === firstIndex);
+
+	return {firstIndex, secondIndex}
 };
 
 
-function getSecondIndex (){
-	let secondIndex = Math.floor(Math.random()*200);
-	return secondIndex
-};
-
-
-function renderArtist_1 (data, rank ){
+function renderArtist_1 (data){
 	artist_1.textContent = "";
 
 	let coverArt = document.createElement("img");
 	coverArt.style.width = "100%";
-	coverArt.src = data;
-	artist_1.dataset.index = rank
+	coverArt.src = data.trackMetadata.displayImageUri
+	artist_1.dataset.index = data.chartEntryData.currentRank
 	artist_1.appendChild(coverArt);
 }
 
-function renderArtist_2 (data, rank){
+function renderArtist_2 (data){
 	artist_2.textContent = "";
 
 	let coverArt = document.createElement("img");
 	coverArt.style.width = "100%";
-	coverArt.src = data;
-	artist_2.dataset.index = rank
+	coverArt.src = data.trackMetadata.displayImageUri;
+	artist_2.dataset.index = data.chartEntryData.currentRank
 	artist_2.appendChild(coverArt);
 }
 
@@ -119,15 +126,22 @@ function incrementScore (){
 }
 
 function checkGameOver(){
-	if(higher === answer){
+	if(higher === true && answer === true){
 		incrementScore();
 		console.log("Correct!")
-	}else if(!higher === answer){
-		gameOver = true;
-		// INPUT END GAME FUNCTION HERE.
-		console.log("Incorrect! Game over!")
+	}else if (higher === false && answer === false){
+		incrementScore();
+		console.log("Correct!")
+	}else if (higher === true && answer === false || higher === false && answer === true){
+		console.log("Incorrect!");
+		resetGame();
 	}
 };
+
+function resetGame(){
+	score = 0;
+	console.log(score)
+}
 
 // GAME FLOW
 
