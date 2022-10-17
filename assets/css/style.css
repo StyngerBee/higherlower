@@ -1,2 +1,48 @@
+:root{ 
+    --green: #1DB954;
+}
+main {
+   position:relative;
+  
+   
+}
+.under-img{
+    clip-path: polygon(0 0, 89% 0, 47% 100%, 0% 100%);
+}
+.over-img {
+    height:auto;
+    width: 800px;
+    position:absolute;
+    top: 80px;
+    left:20px;
+    
 
+}
+body{
+    background-color: black;
+}
+.buttons{
+    position: absolute;
+    bottom:10px;
+    right: 30px;
+    
+
+}
+
+.text {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight:bold;
+    font-size: 80px;
+    border:solid var(--green);
+    background-color: black;
+    color: var(--green);
+    display: flex;
+    justify-content: flex-end;
+    align-items: right;
+    margin: auto;
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
 
