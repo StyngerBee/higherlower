@@ -22,6 +22,13 @@ const options = {
 					// 		   data[0].chartEntryData.currentRank);
 					let song_1;
 					let song_2;
+
+					song_1 = data[getFirstIndex()]
+					song_2 = data[getSecondIndex()]
+							renderArtist_1(song_1.trackMetadata.displayImageUri, 
+											song_1.chartEntryData.currentRank);
+							renderArtist_2(song_2.trackMetadata.displayImageUri,
+											song_2.chartEntryData.currentRank);
 					
 					arrows.forEach(arrow => {
 						arrow.addEventListener("click", (e)=>{
@@ -61,10 +68,12 @@ function getFirstIndex (){
 	return firstIndex
 };
 
+
 function getSecondIndex (){
 	let secondIndex = Math.floor(Math.random()*200);
 	return secondIndex
 };
+
 
 function renderArtist_1 (data, rank ){
 	artist_1.textContent = "";
