@@ -21,27 +21,38 @@
     </script>
 </head>
 
-<body class="gradient-bg" alt="Background gradient">
-    <div class="sixty">
-        <div class="logo">
-           <img src="./assets/images/logo.png" alt="'Higher Lower' logo"> 
-        </div>
-        <div class="artist-1-box-dims">
-            <div class="artist-box">
-                <div class="artist-1" id="artist-1"></div>
+<body>
+    <main class="gradient-bg" alt="Background gradient">
+        <div class="sixty">
+            <div class="logo">
+               <img src="./assets/images/logo.png" alt="'Higher Lower' logo"> 
+            </div>
+            <div class="artist-1-box-dims">
+                <div class="artist-box">
+                    <div class="overlay-1">
+                        <h1>Song Name 1</h1>
+                        <p>Artist Name 1</p>
+                    </div>
+                    <div class="artist-1" id="artist-1"></div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="fourty">
-        <img class="up-arrow arrow" src="./assets/images/upArrow.png" alt="Upwards pointing arrow">
-        <img class="down-arrow arrow" src="./assets/images/downArrow.png"alt="Downwards pointing arrow">
-        <div class="upper-half"></div>
-        <div class="lower-half"></div>
-        <div class="artist-2-box-dims">
-            <canvas id="popularity" style="width:100%; height:100%"></canvas>
+    
+        <div class="fourty">
+            <img class="up-arrow arrow" src="./assets/images/upArrow.png" alt="Upwards pointing arrow">
+            <img class="down-arrow arrow" src="./assets/images/downArrow.png"alt="Downwards pointing arrow">
+            <div class="upper-half"></div>
+            <div class="lower-half"></div>
+            <div class="artist-2-box-dims">
+                <div class="overlay-2">
+                    <h1>Song Name 2</h1>
+                    <p>Artist Name 2</p>
+                </div>
+                <div class="artist-2" id="artist-2"></div>
+                <!-- <canvas id="popularity" style="width:100%; height:100%"></canvas> -->
+            </div>
         </div>
-    </div>
+    </main>
     
     <!-- Javascript file -->
     <script src="./assets/js/trends.js"></script>
