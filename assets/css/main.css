@@ -73,13 +73,15 @@ main {
     z-index: 2;
 }
 
-[class*="overlay"] > h1 {
+
+#song-name-1, #song-name-2 {
     font-weight: bold;
     font-size: calc(var(--artist-dims) * 0.05);
     padding-top: calc(var(--artist-dims) * 0.2 * 0.4);
 }
 
-[class*="overlay"] > p {
+
+#artist-name-1, #artist-name-2{
     font-size: calc(var(--artist-dims) * 0.025);
     padding-top: calc(var(--artist-dims) * 0.2 * 0.075);
 }
@@ -219,12 +221,14 @@ main {
         padding-left: calc(var(--artist-dims-diff) * 0.2 * 0.1);
     }
 
-    [class*="overlay"] > h1 {
+
+    #song-name-1, #song-name-2{
         font-size: calc(var(--artist-dims-diff) * 0.05);
         padding-top: calc(var(--artist-dims-diff) * 0.2 * 0.4);
     }
     
-    [class*="overlay"] > p {
+
+    #artist-name-1, #artist-name-2 {
         font-size: calc(var(--artist-dims-diff) * 0.025);
         padding-top: calc(var(--artist-dims-diff) * 0.2 * 0.075);
     }
@@ -300,12 +304,12 @@ main {
         padding-left: calc(var(--artist-dims-diff) * 0.2 * 0.1);
     }
 
-    [class*="overlay"] > h1 {
+    #song-name-1, #song-name-2 {
         font-size: calc(var(--artist-dims-diff) * 0.05);
         padding-top: calc(var(--artist-dims-diff) * 0.2 * 0.4);
     }
     
-    [class*="overlay"] > p {
+    #artist-name-1, #artist-name-2 {
         font-size: calc(var(--artist-dims-diff) * 0.025);
         padding-top: calc(var(--artist-dims-diff) * 0.2 * 0.075);
     }
