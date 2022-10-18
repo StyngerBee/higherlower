@@ -3,10 +3,10 @@ A higher or lower game based on musical artists and their popularity.
 
 ## Description
 
-Our motivation for creting this project was a mutual idea that our group came up with that we thought would be challenging and fun to create. We built this project because we wanted to put the skills that we have learned so far to the test and see how well we could make our idea a reality. This project helped us better impliment the skills that we have learned over the past few weeks and also gain a better understanding on how to use them when writing our code. Creating this project we learned how better team building skills, layout planning and organization and also how to communicate more efficiently with our other group members.
+Our motivation for creating this project was a mutual idea that our group came up with that we thought would be challenging and fun to create. We built this project because we wanted to put the skills that we have learned so far to the test and see how well we could make our idea a reality. This project helped us better impliment the skills that we have learned over the past few weeks and also gain a better understanding on how to use them when writing our code. Creating this project we learned how better team building skills, layout planning and organization and also how to communicate more efficiently with our other group members.
 
 ## Installation
-N/A
+In order to utilize this application you must have any web browser installed. 
 
 ## Usage
 
@@ -15,16 +15,36 @@ To use this Higher||lower game, the users must first click on the "START" button
 ## Credits
 
 ### Collaborators
-https://github.com/StyngerBee
-https://github.com/Binnyboy1
-https://github.com/ken862734801
-https://github.com/Zechariahmn
+- [https://github.com/StyngerBee]
+- [https://github.com/Binnyboy1]
+- [https://github.com/ken862734801]
+- [https://github.com/Zechariahmn]
 
 ### API
-https://www.npmjs.com/package/google-trends-api
-https://rapidapi.com/airaudoeduardo/api/spotify81
+[https://www.npmjs.com/package/google-trends-api]
+[https://rapidapi.com/airaudoeduardo/api/spotify81]
 
 ## URL
 
 ## License 
-N/A
+MIT License
+
+Copyright (c) 2022 Curran Duke
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
