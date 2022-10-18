@@ -54,8 +54,16 @@ main {
     border: 4px solid var(--green);
     border-radius: 4px;
 
+    height: max-content;
     margin-top: 30px;
-    padding: calc(var(--button-padding));
+    padding: 0px;
+    padding-left: calc(var(--button-padding));
+    padding-right: calc(var(--button-padding));
+}
+
+.text * {
+    padding: auto;
+    margin: 0;
 }
 
 @media screen and (max-aspect-ratio: 7/5) {
