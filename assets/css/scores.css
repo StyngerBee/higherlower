@@ -1,0 +1,77 @@
+/*universal selector */
+:root {
+    --darkpurp: #522288;
+    --lightpurp: #783bbd;
+    --lighterpurp: #d0acf8;
+    --offwhite: #ead9ff;
+
+  }
+  /* targets body */
+body{
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+/* selects header*/
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 5px;
+    font-weight: bold;
+}
+ /* targets view high score link */
+
+.wrapper{
+    display: flex;
+    margin: auto;
+    margin-top: 25px;
+    width: 500px;
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: left;
+    flex-direction: column;
+}
+
+/* styles all buttons on page */
+button {
+    background-color: var(--darkpurp);
+    color: white;
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 7px;
+
+}
+button:hover{
+    background-color: var(--lightpurp);
+    cursor: pointer;
+}
+
+
+
+
+/* adjusts highscore screen and everything on that screen */
+#highscores {
+    width: 100%;
+    padding: 0;
+}
+
+#highscores li:nth-child(odd) {
+    background: var(--lighterpurp);
+    list-style-position: inside;
+  }
+  
+  #highscores li:nth-child(even) {
+    list-style-position: inside;
+    background: var(--offwhite);
+  }
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: contents;
+}
