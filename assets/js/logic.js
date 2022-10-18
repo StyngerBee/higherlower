@@ -22,7 +22,6 @@ fetch('https://spotify81.p.rapidapi.com/top_200_tracks', options)
             renderArtist_1(song_1);
             renderArtist_2(song_2);
 
-			getSongRank();
 
             console.log(song_1);
             console.log(song_2);
@@ -30,16 +29,16 @@ fetch('https://spotify81.p.rapidapi.com/top_200_tracks', options)
             arrows.forEach(arrow => {
                 arrow.addEventListener("click", (e)=> {
                     //Function to move the second song to the front of the data array.
-                    data.unshift(song_2);
-                    getUserAnswer(e);
-                    getSongRank();
-					checkGameOver();
-                    if(higher === answer){
+                    compareSongRank();
+					getUserAnswer(e);
+                    checkIfCorrect();
+					data.unshift(song_2);
+                    if(correct === true){
                         song_1 = data[0];
                         song_2 = data[getRandomIndex().secondIndex];
-                        renderArtist_1(song_1);
-                        renderArtist_2(song_2);
-                    }else if(higher !== answer){
+                        setTimeout(renderArtist_1(song_1), 4000);
+                        setTimeout(renderArtist_2(song_2), 4000);
+                    }else if(correct === false){
                         song_1 = data[getRandomIndex().firstIndex];
                         song_2 = data[getRandomIndex().secondIndex];
                         renderArtist_1(song_1);
@@ -68,6 +67,7 @@ let artist_2 = document.getElementById("artist-2");
 let score = 0;
 let answer;
 let higher;
+let correct;
 let gameOver = false;
 
 //Functions. 
@@ -124,12 +124,12 @@ function getUserAnswer(e){
 };
 
 // Function to compare the current ranks of the two songs. 
-function getSongRank(){
-    if(artist_1.dataset.index < artist_2.dataset.index){
+function compareSongRank(){
+    if(artist_1.dataset.index > artist_2.dataset.index){
 		console.log(artist_1.dataset.index);
 		console.log(artist_2.dataset.index);
         higher = true;
-    }else if(artist_1.dataset.index > artist_2.dataset.index){
+    }else if(artist_1.dataset.index < artist_2.dataset.index){
         higher = false;
 		console.log(artist_1.dataset.index);
 		console.log(artist_2.dataset.index);
@@ -137,16 +137,32 @@ function getSongRank(){
 };
 
 //Function to check if the user is correct. If not then game over becomes true.
-function checkGameOver(){
+function checkIfCorrect(){
    if(higher === true && answer === true){
+    correct = true;
+    updateCardCorrect();
 	console.log("Correct!")
    }else if(higher === false && answer === false){
+    correct = true;
+    updateCardCorrect();
 	console.log("Correct!");
    }else if(higher === true && answer === false){
+    correct = false;
+    updateCardIncorrect();
 	console.log("Incorrect!");
    }else if(higher === false && answer === true){
+    correct = false;
+    updateCardIncorrect();
 	console.log("Incorrect!");
    }
+};
+
+function updateCardCorrect (){
+    
+};
+
+function updateCardIncorrect(){
+    
 };
 
 //Function to add a point to the user score.
