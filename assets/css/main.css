@@ -1,6 +1,7 @@
 /* 
 Global attributes begin here 
 */
+
 :root {
     --left-side: 60vw;
     --right-side: calc(100vw - var(--left-side));
@@ -16,6 +17,10 @@ Global attributes begin here
 Body formatting begins here
 */
 body {
+    background-color: black;
+}
+
+main {
     display: flex;
     flex-direction: row;
 }
@@ -49,6 +54,39 @@ body {
     margin-bottom: 8vh;
     width: var(--artist-dims);
     height: var(--artist-dims);
+    position: relative;
+}
+
+[class*="overlay"] {
+    position: absolute;
+    width: calc(var(--artist-dims) * 0.6);
+    height: calc(var(--artist-dims) * 0.2);
+    background-image: linear-gradient(#00000000, #00000099);
+    z-index: 1;
+
+    margin-top: calc(var(--artist-dims) * 0.4);
+}
+
+[class*="overlay"] > * {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-left: calc(var(--artist-dims) * 0.2 * 0.1);
+    color: white;
+    z-index: 2;
+}
+
+#song-name-1, #song-name-2 {
+    font-weight: bold;
+    font-size: calc(var(--artist-dims) * 0.05);
+    padding-top: calc(var(--artist-dims) * 0.2 * 0.4);
+}
+
+#artist-name-1, #artist-name-2 {
+    font-size: calc(var(--artist-dims) * 0.025);
+    padding-top: calc(var(--artist-dims) * 0.2 * 0.075);
+}
+
+.overlay-1 {
+    bottom: calc(var(--artist-dims) * 0.2);
 }
 
 .artist-box {
@@ -146,22 +184,47 @@ body {
         --circle-width: 10vw;
         --circle-spacing: 1.3333vw;
         --arrow-scale: 5.3125vw;
+        --artist-dims-diff: 45vw;
     }
 
     .artist-1-box-dims {
-        width: 45vw;
+        width: var(--artist-dims-diff);
         display: flex;
         align-items: center;
     }
 
+    [class*="overlay"] {
+        width: calc(var(--artist-dims-diff) * 0.6);
+        height: calc(var(--artist-dims-diff) * 0.2);
+        margin-top: calc(var(--artist-dims-diff) * 0.4);
+    }
+
+    [class*="overlay"] > * {
+        padding-left: calc(var(--artist-dims-diff) * 0.2 * 0.1);
+    }
+
+    #song-name-1, #song-name-2  {
+        font-size: calc(var(--artist-dims-diff) * 0.05);
+        padding-top: calc(var(--artist-dims-diff) * 0.2 * 0.4);
+    }
+    
+    #artist-name-1, #artist-name-2 {
+        font-size: calc(var(--artist-dims-diff) * 0.025);
+        padding-top: calc(var(--artist-dims-diff) * 0.2 * 0.075);
+    }
+
+    .overlay-1 {
+        bottom: calc(((var(--artist-dims) - var(--artist-dims-diff))/ 2) + (var(--artist-dims-diff) * 0.2));
+    }
+
     .artist-box {
-        height: 45vw;
+        height: var(--artist-dims-diff);
         margin: auto 0;
     }
 
     .artist-2-box-dims {
-        width: calc(45vw * .6);
-        height: calc(45vw * .6);
+        width: calc(var(--artist-dims-diff) * .6);
+        height: calc(var(--artist-dims-diff) * .6);
     }
 }
 
@@ -179,9 +242,10 @@ body {
         --circle-spacing: 8vw;
         --arrow-scale: 12.75vw;
         --logo-height: 20vw;
+        --artist-dims-diff: calc(var(--left-side) * .8);
     }
 
-    body {
+    main {
         flex-direction: column;
     }
 
@@ -189,16 +253,48 @@ body {
         margin: 7.5vw 0;
     }
 
+    /* break */
     .artist-1-box-dims {
         margin-bottom: 15vw;
-        width: calc(var(--left-side) * .8);
-        height: calc(var(--left-side) * .8);
+        width: var(--artist-dims-diff);
+        height: var(--artist-dims-diff);
+    }
+
+    .artist-2-box-dims {
+        margin: 0;
+        width: calc(var(--artist-dims-diff) * .6);
+        height: calc(var(--artist-dims-diff) * .6);
     }
 
     .artist-box {
         height: 100%;
         margin: auto 0;
     }
+
+    [class*="overlay"] {
+        width: calc(var(--artist-dims-diff) * 0.6);
+        height: calc(var(--artist-dims-diff) * 0.2);
+        margin-top: calc(var(--artist-dims-diff) * 0.4);
+    }
+
+    [class*="overlay"] > * {
+        padding-left: calc(var(--artist-dims-diff) * 0.2 * 0.1);
+    }
+
+    #song-name-1, #song-name-2 {
+        font-size: calc(var(--artist-dims-diff) * 0.05);
+        padding-top: calc(var(--artist-dims-diff) * 0.2 * 0.4);
+    }
+    
+    #artist-name-1, #artist-name-2 {
+        font-size: calc(var(--artist-dims-diff) * 0.025);
+        padding-top: calc(var(--artist-dims-diff) * 0.2 * 0.075);
+    }
+
+    .overlay-1 {
+        bottom: calc(var(--artist-dims-diff) * 0.2);
+    }
+    /* break */
 
     .fourty {
         flex-direction: row;
@@ -207,12 +303,6 @@ body {
     .upper-half, .lower-half {
         height: 100vw;
         width: 50vw;
-    }
-
-    .artist-2-box-dims {
-        margin: 0;
-        width: calc(var(--left-side) * .8 * .6);
-        height: calc(var(--left-side) * .8 * .6);
     }
 
     .up-arrow {
