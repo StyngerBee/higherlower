@@ -95,9 +95,11 @@ function renderSongCards(song1, song2){
     let coverArt_1 = document.createElement("img");
     let songName_1 = document.getElementById("song-name-1");
     let artistName_1 = document.getElementById("artist-name-1");
+    let songRank = document.getElementById("song-rank");
 
     songName_1.textContent = song1.trackMetadata.trackName;
     artistName_1.textContent = song1.trackMetadata.artists[0].name;
+    songRank.textContent = `Rank : ${song1.chartEntryData.currentRank}`;
     
     coverArt_1.style.width = "100%";
     coverArt_1.src = song1.trackMetadata.displayImageUri;
@@ -223,14 +225,14 @@ function updateCardCorrect (){
     card_1.style.border = "5px solid green";
     setTimeout(function(){
         card_1.style.border = "none";
-    }, 1000);
+    }, 500);
 };
 //Function to give user feedback if incorrect.
 function updateCardIncorrect(){
     card_1.style.border = "5px solid red";
     setTimeout(function(){
         card_1.style.border = "none";
-    }, 1000);
+    }, 500);
 };
 
 //Function to add a point to the user score.
