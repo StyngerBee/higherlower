@@ -247,6 +247,10 @@ function decreaseScore (){
     return score
 }
 
+// adds score to game screen
+const span = document.getElementById('displayScore');
+span.innerHTML = score;
+
 // Function to reset the game.
 function resetGame(){
     score = 0;
