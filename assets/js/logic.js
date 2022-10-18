@@ -1,61 +1,61 @@
-//API INFORMATION
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '6b19242e27mshaaddac799972dfep1bbe51jsnba083ea5c7fd',
-		'X-RapidAPI-Host': 'spotify81.p.rapidapi.com'
-	}
-};
+// //API INFORMATION
+// const options = {
+// 	method: 'GET',
+// 	headers: {
+// 		'X-RapidAPI-Key': '6b19242e27mshaaddac799972dfep1bbe51jsnba083ea5c7fd',
+// 		'X-RapidAPI-Host': 'spotify81.p.rapidapi.com'
+// 	}
+// };
 
-fetch('https://spotify81.p.rapidapi.com/top_200_tracks', options)
-.then(function(response){
-    if(response.ok){
-        response.json().then(function(data){
+// fetch('https://spotify81.p.rapidapi.com/top_200_tracks', options)
+// .then(function(response){
+//     if(response.ok){
+//         response.json().then(function(data){
             
-            console.log(data);
-            let song_1;
-            let song_2;
+//             console.log(data);
+//             let song_1;
+//             let song_2;
 
-            song_1 = data[getRandomIndex().firstIndex];
-            song_2 = data[getRandomIndex().secondIndex];
-            //Render the songs when the data arrives.
-            renderArtist_1(song_1);
-            renderArtist_2(song_2);
+//             song_1 = data[getRandomIndex().firstIndex];
+//             song_2 = data[getRandomIndex().secondIndex];
+//             //Render the songs when the data arrives.
+//             renderArtist_1(song_1);
+//             renderArtist_2(song_2);
 
 
-            console.log(song_1);
-            console.log(song_2);
+//             console.log(song_1);
+//             console.log(song_2);
 
-            arrows.forEach(arrow => {
-                arrow.addEventListener("click", (e)=> {
-                    //Function to move the second song to the front of the data array.
-                    compareSongRank();
-					getUserAnswer(e);
-                    checkIfCorrect();
-					data.unshift(song_2);
-                    if(correct === true){
-                        song_1 = data[0];
-                        song_2 = data[getRandomIndex().secondIndex];
-                        setTimeout(renderArtist_1(song_1), 4000);
-                        setTimeout(renderArtist_2(song_2), 4000);
-                    }else if(correct === false){
-                        song_1 = data[getRandomIndex().firstIndex];
-                        song_2 = data[getRandomIndex().secondIndex];
-                        renderArtist_1(song_1);
-                        renderArtist_2(song_2);
-                    };
-                        console.log(song_1);
-                        console.log(song_2);
+//             arrows.forEach(arrow => {
+//                 arrow.addEventListener("click", (e)=> {
+//                     //Function to move the second song to the front of the data array.
+//                     compareSongRank();
+// 					getUserAnswer(e);
+//                     checkIfCorrect();
+// 					data.unshift(song_2);
+//                     if(correct === true){
+//                         song_1 = data[0];
+//                         song_2 = data[getRandomIndex().secondIndex];
+//                         setTimeout(renderArtist_1(song_1), 4000);
+//                         setTimeout(renderArtist_2(song_2), 4000);
+//                     }else if(correct === false){
+//                         song_1 = data[getRandomIndex().firstIndex];
+//                         song_2 = data[getRandomIndex().secondIndex];
+//                         renderArtist_1(song_1);
+//                         renderArtist_2(song_2);
+//                     };
+//                         console.log(song_1);
+//                         console.log(song_2);
 
-                })
-            })
+//                 })
+//             })
 
             
-        })
-    }else{
-        console.log("Error: " + response.statusText)
-    }
-});
+//         })
+//     }else{
+//         console.log("Error: " + response.statusText)
+//     }
+// });
 
 // Variables for the DOM elements. 
 let gameContainer = document.querySelector(".fourty");
