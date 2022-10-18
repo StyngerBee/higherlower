@@ -1,7 +1,6 @@
 /* 
 Global attributes begin here 
 */
-
 :root {
     --left-side: 60vw;
     --right-side: calc(100vw - var(--left-side));
@@ -64,7 +63,7 @@ main {
     background-image: linear-gradient(#00000000, #00000099);
     z-index: 1;
 
-    margin-top: calc(var(--artist-dims) * 0.4);
+    padding-top: calc(var(--artist-dims) * 0.4);
 }
 
 [class*="overlay"] > * {
@@ -80,7 +79,7 @@ main {
     padding-top: calc(var(--artist-dims) * 0.2 * 0.4);
 }
 
-#artist-name-1, #artist-name-2 {
+#artist-name-1, #artist-name-2{
     font-size: calc(var(--artist-dims) * 0.025);
     padding-top: calc(var(--artist-dims) * 0.2 * 0.075);
 }
@@ -94,14 +93,31 @@ main {
     width: 100%; 
     height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
 .artist-1 {
     background-color: white; 
+    margin-top: 20%;
     width: 60%; 
     height: 60%;
+}
+
+.rank {
+    width: 60%; 
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rank > h2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+    z-index: 1;
+    font-size: calc(var(--artist-dims) * 0.05);
 }
 
 
@@ -196,14 +212,14 @@ main {
     [class*="overlay"] {
         width: calc(var(--artist-dims-diff) * 0.6);
         height: calc(var(--artist-dims-diff) * 0.2);
-        margin-top: calc(var(--artist-dims-diff) * 0.4);
+        padding-top: calc(var(--artist-dims-diff) * 0.4);
     }
 
     [class*="overlay"] > * {
         padding-left: calc(var(--artist-dims-diff) * 0.2 * 0.1);
     }
 
-    #song-name-1, #song-name-2  {
+    #song-name-1, #song-name-2{
         font-size: calc(var(--artist-dims-diff) * 0.05);
         padding-top: calc(var(--artist-dims-diff) * 0.2 * 0.4);
     }
@@ -211,6 +227,10 @@ main {
     #artist-name-1, #artist-name-2 {
         font-size: calc(var(--artist-dims-diff) * 0.025);
         padding-top: calc(var(--artist-dims-diff) * 0.2 * 0.075);
+    }
+
+    .rank > h2 {
+        font-size: calc(var(--artist-dims-diff) * 0.05);
     }
 
     .overlay-1 {
@@ -253,7 +273,6 @@ main {
         margin: 7.5vw 0;
     }
 
-    /* break */
     .artist-1-box-dims {
         margin-bottom: 15vw;
         width: var(--artist-dims-diff);
@@ -274,7 +293,7 @@ main {
     [class*="overlay"] {
         width: calc(var(--artist-dims-diff) * 0.6);
         height: calc(var(--artist-dims-diff) * 0.2);
-        margin-top: calc(var(--artist-dims-diff) * 0.4);
+        padding-top: calc(var(--artist-dims-diff) * 0.4);
     }
 
     [class*="overlay"] > * {
@@ -291,10 +310,13 @@ main {
         padding-top: calc(var(--artist-dims-diff) * 0.2 * 0.075);
     }
 
+    .rank > h2 {
+        font-size: calc(var(--artist-dims-diff) * 0.05);
+    }
+
     .overlay-1 {
         bottom: calc(var(--artist-dims-diff) * 0.2);
     }
-    /* break */
 
     .fourty {
         flex-direction: row;
