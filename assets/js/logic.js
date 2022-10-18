@@ -20,8 +20,7 @@ fetch('https://spotify81.p.rapidapi.com/top_200_tracks', options)
             song_2 = data[getRandomIndex().secondIndex];
 
             //Render the songs when the data arrives.
-            rendercard_1(song_1);
-            rendercard_2(song_2);
+            renderSongCards(song_1, song_2)
 
             console.log(song_1);
             console.log(song_2);
@@ -37,15 +36,13 @@ fetch('https://spotify81.p.rapidapi.com/top_200_tracks', options)
                     if(correct === true){
                         song_1 = data[0];
                         song_2 = data[getRandomIndex().secondIndex];
-                        (rendercard_1(song_1));
-                        (rendercard_2(song_2));
+                        (renderSongCards(song_1, song_2));
                         console.log("First: " + card_1.dataset.index);
                         console.log("Second: " + card_2.dataset.index);
                     }else{
                         song_1 = data[getRandomIndex().firstIndex];
                         song_2 = data[getRandomIndex().secondIndex];
-                        (rendercard_1(song_1));
-                        (rendercard_2(song_2));
+                        (renderSongCards(song_1, song_2));
                         console.log("First: " + card_1.dataset.index);
                         console.log("Second: " + card_2.dataset.index);
                     };
@@ -91,33 +88,78 @@ function getRandomIndex(){
     return {firstIndex, secondIndex}
 };
 
-// Function to render the information for the first artist/song.
-function rendercard_1(data){
-    //Clear the image container
+//Function to render the cards.
+function renderSongCards(song1, song2){
     card_1.textContent = "";
 
-    let coverArt = document.createElement("img");
-    coverArt.style.width = "100%";
-    coverArt.src = data.trackMetadata.displayImageUri;
+    let coverArt_1 = document.createElement("img");
+    let songName_1 = document.getElementById("song-name-1");
+    let artistName_1 = document.getElementById("artist-name-1");
+
+    songName_1.textContent = song1.trackMetadata.trackName;
+    artistName_1.textContent = song1.trackMetadata.artists[0].name;
+    
+    coverArt_1.style.width = "100%";
+    coverArt_1.src = song1.trackMetadata.displayImageUri;
     //Setting the data-index value to the current rank of the song.
-    card_1.dataset.index = data.chartEntryData.currentRank;
-    card_1.appendChild(coverArt);
-
-};
-
-// Function to render the information for the second artist/song.
-function rendercard_2 (data){
+    card_1.dataset.index = song1.chartEntryData.currentRank;
+    card_1.appendChild(coverArt_1);
 
     card_2.textContent = "";
 
-    let coverArt = document.createElement("img");
-    coverArt.style.width = "100%";
-    coverArt.src = data.trackMetadata.displayImageUri;
-    //Setting the data-index value to the current rank of the song.
-    card_2.dataset.index = data.chartEntryData.currentRank;
-    card_2.appendChild(coverArt);
+    let coverArt_2 = document.createElement("img");
+    let songName_2 = document.getElementById("song-name-2");
+    let artistName_2 = document.getElementById("artist-name-2");
 
-};
+    songName_2.textContent = song2.trackMetadata.trackName;
+    artistName_2.textContent = song2.trackMetadata.artists[0].name;
+
+    coverArt_2.style.width = "100%";
+    coverArt_2.src = song2.trackMetadata.displayImageUri;
+    //Setting the data-index value to the current rank of the song.
+    card_2.dataset.index = song2.chartEntryData.currentRank;
+    card_2.appendChild(coverArt_2);
+}
+
+// // Function to render the information for the first artist/song.
+// function rendercard_1(data){
+//     //Clear the image container
+//     card_1.textContent = "";
+
+//     let songName_1 = document.getElementById("song-name-1");
+//     let artistName_1 = document.getElementById("artist-name-1");
+
+//     songName_1.textContent = data.trackMetadata.trackName;
+//     artistName_1.textContent = data.trackMetadata.artists[0].name;
+
+//     let coverArt = document.createElement("img");
+//     coverArt.style.width = "100%";
+//     coverArt.src = data.trackMetadata.displayImageUri;
+//     //Setting the data-index value to the current rank of the song.
+//     card_1.dataset.index = data.chartEntryData.currentRank;
+//     card_1.appendChild(coverArt);
+
+// };
+
+// // Function to render the information for the second artist/song.
+// function rendercard_2 (data){
+
+//     card_2.textContent = "";
+
+//     let songName_2 = document.getElementById("song-name-2");
+//     let artistName_2 = document.getElementById("artist-name-2");
+
+//     songName_2.textContent = data.trackMetadata.trackName;
+//     artistName_2.textContent = data.trackMetadata.artists[0].name;
+
+//     let coverArt = document.createElement("img");
+//     coverArt.style.width = "100%";
+//     coverArt.src = data.trackMetadata.displayImageUri;
+//     //Setting the data-index value to the current rank of the song.
+//     card_2.dataset.index = data.chartEntryData.currentRank;
+//     card_2.appendChild(coverArt);
+
+// };
 
 // Function to record user answer depending on if they click the up or down arrow.
 function getUserAnswer(e){
@@ -152,21 +194,25 @@ function checkIfCorrect(){
    if(higher === true && answer === true){
     correct = true;
     incrementScore();
+    updateCardCorrect();
 	console.log(correct)
     console.log("Correct!");
    }if(higher === false && answer === false){
     correct = true;
     incrementScore();
+    updateCardCorrect();
 	console.log(correct);
     console.log("Correct!");
    }if(higher === true && answer === false){
     correct = false;
     decreaseScore();
+    updateCardIncorrect();
 	console.log(correct);
     console.log("False!");
    }if(higher === false && answer === true){
     correct = false;
     decreaseScore();
+    updateCardIncorrect();
 	console.log(correct);
     console.log("False!");
    }
@@ -174,11 +220,17 @@ function checkIfCorrect(){
 
 //Function to give user feedback if correct.
 function updateCardCorrect (){
-    
+    card_1.style.border = "5px solid green";
+    setTimeout(function(){
+        card_1.style.border = "none";
+    }, 1000);
 };
 //Function to give user feedback if incorrect.
 function updateCardIncorrect(){
-    
+    card_1.style.border = "5px solid red";
+    setTimeout(function(){
+        card_1.style.border = "none";
+    }, 1000);
 };
 
 //Function to add a point to the user score.
@@ -197,5 +249,7 @@ function decreaseScore (){
 function resetGame(){
     score = 0;
 };
+
+
 
 
