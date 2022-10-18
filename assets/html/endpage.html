@@ -1,0 +1,34 @@
+<!-- html:5 formatting for endgame sheet-->
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Highscores</title>
+        <!-- links stylesheet for html from assets folder-->
+        <link rel="stylesheet" href="../css/reset.css">
+        <link rel="stylesheet" href="../css/endpage.css">
+    </head>
+    <!-- references the buttons on the high score page, and links buttons to targets-->
+    <body>
+
+        <section id="results" data-state="hidden">
+            <h2>All done!</h2>
+            <h4>Your final score is <span id="score"></span>.</h4>
+            <form action="../../assets/html/highscores.html">
+                <h4>Enter initials:</h4>
+                <input id="initials" type="text">
+                <input id="submit" type="submit">
+            </form>
+
+        <main>
+            <section id="high-scores" data-state="hidden">
+            <ol id="all-scores"></ol>
+            <a href="../../index.html"><button id="go-back">Go Back</button>
+        </section>
+        </main>
+            <!-- links js so that local storage works within highscores html-->
+        <script src="../js/endpage.js"></script>
+    </body>
+</html>
