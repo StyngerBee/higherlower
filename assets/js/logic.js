@@ -214,7 +214,7 @@ function incrementScore (){
 
 //Function to end game.
 function endGame(){
-    /* localStorage.setItem('preIscore',score); */
+     localStorage.setItem('preIscore',score); 
     setTimeout(function(){location.href="./assets/html/endpage.html"} , 1000); 
      
 };

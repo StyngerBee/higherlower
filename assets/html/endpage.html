@@ -9,13 +9,14 @@
         <!-- links stylesheet for html from assets folder-->
         <link rel="stylesheet" href="../css/reset.css">
         <link rel="stylesheet" href="../css/endpage.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     <!-- references the buttons on the high score page, and links buttons to targets-->
     <body>
 
         <section id="results" data-state="hidden">
             <h2>All done!</h2>
-            <h4>Your final score is <span id="score"></span>.</h4>
+            <h4>Your final score is <span id="displayScore"></span>.</h4>
             <form action="../../assets/html/highscores.html">
                 <h4>Enter initials:</h4>
                 <input id="initials" type="text">
@@ -29,7 +30,8 @@
         </section>
         </main>
             <!-- links js so that local storage works within highscores html-->
-        <script src="../js/endpage.js"></script>
         <script src="../js/logic.js"></script>
+        <script src="../js/endpage.js"></script>
+        
     </body>
 </html>

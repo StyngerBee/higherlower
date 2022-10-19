@@ -1,9 +1,9 @@
 //creating elements//
-var viewHighScores = document.getElementById('scores');
+
 var answerResult = document.querySelectorAll('.result');
 
 var resultsPage = document.getElementById('results')
-var scoreEl= document.getElementById('score');
+var scoreEl= document.getElementById('displayScore');
 var initials = document.getElementById('initials');
 var submitBtn = document.getElementById('submit');
 
@@ -11,6 +11,9 @@ var highScoresPage = document.getElementById('high-scores');
 var highScoresList = document.getElementById('all-scores');
 var againBtn = document.getElementById('play-again');
 var clear = document.getElementById('clear');
+var initialsList = [];
+var allTimeHighScores =[];
+var storedScores;
 
 // renders initials and score into a li element//
 function renderHighScores() {
@@ -18,8 +21,8 @@ function renderHighScores() {
     highScoresPage.setAttribute('data-state', 'visible');
     highScoresList.innerHTML = '';
     for (var i = 0; i < initialsList.length; i++) {
-        var newInitials = initialsList[i];
-        var newScores = scoreEl[i];
+        var newInitials = allTimeHighScores[i].initials;
+        var newScores = allTimeHighScores[i].highscore;
 
         var li = document.createElement('li');
         li.setAttribute('class', 'scoresList')
@@ -33,45 +36,46 @@ function renderHighScores() {
 // gets stored initials and scores from local storage
 function getStoredScores() {
     var storedInitials = JSON.parse(localStorage.getItem('initialsList'));
-    var storedScores = JSON.parse(localStorage.getItem('scores'));
+    var pulledstoredScores = localStorage.getItem('preIscore');
 
     if (storedInitials !== null) {
         initialsList = storedInitials;
-        scoreEl = storedScores;
+        
     }
+    storedScores = pulledstoredScores;
+    scoreEl.innerHTML = storedScores;
 }
 
 // stores initials and score into local storage
 function storeScores() {
-    localStorage.setItem('initialsList', JSON.stringify(initialsList));
-
-    localStorage.setItem('scores', JSON.stringify(scoreEl));
-
     
+    var playerInfo = { 
+        "initials": initials.value,
+        "highscore": storedScores
+    }
+   allTimeHighScores.push(playerInfo);
+   
+    console.log(playerInfo);
+    localStorage.setItem('allTimeHighScores', JSON.stringify(allTimeHighScores));
+
+    console.log(allTimeHighScores);
 }
 
-viewHighScores.addEventListener('click', function() {
-    startPage.setAttribute('data-state', 'hidden');
-    timer.setAttribute('data-state', 'hidden');
-    highScoresPage.setAttribute('data-state', 'visible');
     getStoredScores();
-    renderHighScores();
-})
+    
+
 
 submitBtn.addEventListener('click', function(event) {
     event.preventDefault();
 
-    timer.setAttribute('data-state', 'hidden');
+   
 
-    var initialsText = initials.value.trim().toUpperCase();
+    // var initialsText = initials.value.trim().toUpperCase();
 
-    if (initialsText === "") {
-        return;
-    }
-
-    initialsList.push(initialsText);
-    initials.value = "";
-    scoreEl.push(scoreEl.textContent);
+    // if (initialsText === "") {
+    //     return;
+    // }
+    
     storeScores();
     getStoredScores();
     renderHighScores();
