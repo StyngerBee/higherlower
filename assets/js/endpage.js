@@ -3,7 +3,7 @@ var viewHighScores = document.getElementById('scores');
 var answerResult = document.querySelectorAll('.result');
 
 var resultsPage = document.getElementById('results')
-var score = document.getElementById('score');
+var scoreEl= document.getElementById('score');
 var initials = document.getElementById('initials');
 var submitBtn = document.getElementById('submit');
 
@@ -19,7 +19,7 @@ function renderHighScores() {
     highScoresList.innerHTML = '';
     for (var i = 0; i < initialsList.length; i++) {
         var newInitials = initialsList[i];
-        var newScores = scores[i];
+        var newScores = scoreEl[i];
 
         var li = document.createElement('li');
         li.setAttribute('class', 'scoresList')
@@ -37,7 +37,7 @@ function getStoredScores() {
 
     if (storedInitials !== null) {
         initialsList = storedInitials;
-        scores = storedScores;
+        scoreEl = storedScores;
     }
 }
 
@@ -45,7 +45,7 @@ function getStoredScores() {
 function storeScores() {
     localStorage.setItem('initialsList', JSON.stringify(initialsList));
 
-    localStorage.setItem('scores', JSON.stringify(scores));
+    localStorage.setItem('scores', JSON.stringify(scoreEl));
 
     
 }
@@ -71,7 +71,7 @@ submitBtn.addEventListener('click', function(event) {
 
     initialsList.push(initialsText);
     initials.value = "";
-    scores.push(score.textContent);
+    scoreEl.push(scoreEl.textContent);
     storeScores();
     getStoredScores();
     renderHighScores();

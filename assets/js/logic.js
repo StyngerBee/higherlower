@@ -211,9 +211,12 @@ function incrementScore (){
     updateScore();
 };
 
+
 //Function to end game.
 function endGame(){
-    setTimeout(function(){location.href="./assets/html/endpage.html"} , 1000);  
+    /* localStorage.setItem('preIscore',score); */
+    setTimeout(function(){location.href="./assets/html/endpage.html"} , 1000); 
+     
 };
 
 
