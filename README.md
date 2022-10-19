@@ -29,10 +29,10 @@ The motivation behind the project was to test our current knowledge on API’s, 
 
 
 ## Collaborators
-- [https://github.com/StyngerBee]
-- [https://github.com/Binnyboy1]
-- [https://github.com/ken862734801]
-- [https://github.com/Zechariahmn]
+- https://github.com/StyngerBee
+- https://github.com/Binnyboy1
+- https://github.com/ken862734801
+- https://github.com/Zechariahmn
 
 ## API's 
 [Google Trends API](https://www.npmjs.com/package/google-trends-api)
