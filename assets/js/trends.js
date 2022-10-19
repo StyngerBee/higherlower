@@ -4,7 +4,7 @@ var yearList = [];
 var monthList = [];
 var dayList = [];
 var dateList = [];
-
+var myChart;
 
 function fetchTrends() {
     var songName = localStorage.getItem('songName');
@@ -99,7 +99,12 @@ function createChart() {
     }
 
     var popularityChartEl = document.getElementById("popularity");
-    new Chart(popularityChartEl, {
+
+    console.log(myChart);
+    if (myChart != null) {
+        myChart.destroy();
+    }
+    myChart = new Chart(popularityChartEl, {
         type: "line",
         data: {
             datasets: [{
