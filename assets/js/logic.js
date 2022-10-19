@@ -40,6 +40,7 @@ fetch('https://spotify81.p.rapidapi.com/top_200_tracks', options)
                         console.log("First: " + card_1.dataset.index);
                         console.log("Second: " + card_2.dataset.index);
                     }else if(correct === false){
+                        //If correct is false, no longer render the cards on arrow click.
                         return
                         song_1 = data[getRandomIndex().firstIndex];
                         song_2 = data[getRandomIndex().secondIndex];
@@ -124,45 +125,6 @@ function renderSongCards(song1, song2){
     card_2.appendChild(coverArt_2);
 }
 
-// // Function to render the information for the first artist/song.
-// function rendercard_1(data){
-//     //Clear the image container
-//     card_1.textContent = "";
-
-//     let songName_1 = document.getElementById("song-name-1");
-//     let artistName_1 = document.getElementById("artist-name-1");
-
-//     songName_1.textContent = data.trackMetadata.trackName;
-//     artistName_1.textContent = data.trackMetadata.artists[0].name;
-
-//     let coverArt = document.createElement("img");
-//     coverArt.style.width = "100%";
-//     coverArt.src = data.trackMetadata.displayImageUri;
-//     //Setting the data-index value to the current rank of the song.
-//     card_1.dataset.index = data.chartEntryData.currentRank;
-//     card_1.appendChild(coverArt);
-
-// };
-
-// // Function to render the information for the second artist/song.
-// function rendercard_2 (data){
-
-//     card_2.textContent = "";
-
-//     let songName_2 = document.getElementById("song-name-2");
-//     let artistName_2 = document.getElementById("artist-name-2");
-
-//     songName_2.textContent = data.trackMetadata.trackName;
-//     artistName_2.textContent = data.trackMetadata.artists[0].name;
-
-//     let coverArt = document.createElement("img");
-//     coverArt.style.width = "100%";
-//     coverArt.src = data.trackMetadata.displayImageUri;
-//     //Setting the data-index value to the current rank of the song.
-//     card_2.dataset.index = data.chartEntryData.currentRank;
-//     card_2.appendChild(coverArt);
-
-// };
 
 // Function to record user answer depending on if they click the up or down arrow.
 function getUserAnswer(e){
@@ -189,6 +151,8 @@ function compareSongRank(){
 		console.log("First: " + card_1.dataset.index);
 		console.log("Second: " + card_2.dataset.index);
         console.log("Higher is false.")
+    }else if(card_1_rank == card_2_rank){
+        higher = true;
     }
 };
 
