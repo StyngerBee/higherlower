@@ -207,14 +207,14 @@ function checkIfCorrect(){
     console.log("Correct!");
    }if(higher === true && answer === false){
     correct = false;
-    decreaseScore();
     updateCardIncorrect();
+    endGame();
 	console.log(correct);
     console.log("False!");
    }if(higher === false && answer === true){
     correct = false;
-    decreaseScore();
     updateCardIncorrect();
+    endGame();
 	console.log(correct);
     console.log("False!");
    }
@@ -222,14 +222,14 @@ function checkIfCorrect(){
 
 //Function to give user feedback if correct.
 function updateCardCorrect (){
-    card_1.style.border = "5px solid green";
+    card_1.style.border = "10px solid green";
     setTimeout(function(){
         card_1.style.border = "none";
     }, 500);
 };
 //Function to give user feedback if incorrect.
 function updateCardIncorrect(){
-    card_1.style.border = "5px solid red";
+    card_1.style.border = "10px solid red";
     setTimeout(function(){
         card_1.style.border = "none";
     }, 500);
@@ -241,10 +241,10 @@ function incrementScore (){
     console.log(score)
     return score
 };
-function decreaseScore (){
-    score --;
-    console.log(score);
-    return score
+
+//Function to end game.
+function endGame(){
+    setTimeout(function(){location.href="./assets/html/endpage.html"} , 1000);  
 }
 
 // Function to reset the game.
