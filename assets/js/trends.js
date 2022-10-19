@@ -100,9 +100,10 @@ function createChart() {
 
     var popularityChartEl = document.getElementById("popularity");
 
-    console.log(myChart);
-    if (myChart != null) {
+    console.log("my chart", myChart);
+    if (myChart != undefined) {
         myChart.destroy();
+        console.log("destroyed");
     }
     myChart = new Chart(popularityChartEl, {
         type: "line",
