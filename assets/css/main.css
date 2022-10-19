@@ -251,6 +251,18 @@ button {
     width: calc(var(--artist-dims) * .6);
     height: calc(var(--artist-dims) * .6);
 }
+/* score formatting */
+
+.screenScore {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #1DB954;
+    font-size: calc(var(--artist-dims) * 0.05);
+    background-color: transparent;
+    position: fixed;
+    z-index: 1;
+    right: 20px;
+    top: 20px;
+}
 
 @media screen and (max-aspect-ratio: 8/5) {
     :root {
@@ -314,12 +326,14 @@ button {
         width: calc(var(--artist-dims-diff) * .6);
         height: calc(var(--artist-dims-diff) * .6);
     }
+    
 }
 
 @media screen and (max-width: 790px) {
     :root {
         --logo-height: 50px;
     }
+    
 }
 
 @media screen and (max-aspect-ratio: 3/4) {
@@ -425,5 +439,15 @@ button {
     .lower-half:after {
         left: var(--circle-spacing);
         top: calc(-1 * var(--circle-width)/2); 
+    }
+    
+}
+
+@media screen and (max-width: 662px) {
+    .screenScore {
+        position: static;
+        bottom: 10px;
+        background-color: black;
+        padding-left: 300px;
     }
 }
