@@ -2,7 +2,7 @@
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '211bb863eemsh3f9d5c4defa0f4dp16d6a1jsn4dbcefde1009',
+		'X-RapidAPI-Key': '9a84f57e65msh7996ddcd9cddfd9p1df062jsnc9266a9d4e69',
 		'X-RapidAPI-Host': 'spotify81.p.rapidapi.com'
 	}
 };
@@ -98,6 +98,11 @@ function renderSongCards(song1, song2){
     let songRank = document.getElementById("song-rank");
 
     songName_1.textContent = song1.trackMetadata.trackName;
+
+    // trends.js called now
+    localStorage.setItem('songName', song1.trackMetadata.trackName); // test
+    fetchTrends();
+
     artistName_1.textContent = song1.trackMetadata.artists[0].name;
     songRank.textContent = `Rank : ${song1.chartEntryData.currentRank}`;
     
