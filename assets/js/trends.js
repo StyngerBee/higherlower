@@ -7,6 +7,7 @@ var dateList = [];
 var myChart;
 
 function fetchTrends() {
+    var apiKey = "0796147d81e5918cb775af94e6cfe4133607515a007050e3a527919f500bff91";
     var songName = localStorage.getItem('songName');
     songName = fixedEncodeURIComponent(songName);
 
@@ -19,7 +20,7 @@ function fetchTrends() {
     songName = songName.replaceAll('%20', '+');
     console.log(songName);
 
-    var apiUrl = `https://floating-headland-95050.herokuapp.com/https://serpapi.com/search?engine=google_trends&q=${songName}&api_key=4b2e0192f6c2e64f5ac07c03398790040706c1cf72d4a27585f8206d191359e2`
+    var apiUrl = `https://floating-headland-95050.herokuapp.com/https://serpapi.com/search?engine=google_trends&q=${songName}&api_key=${apiKey}`
 
     fetch (apiUrl)
         // .then that returns the response as json
