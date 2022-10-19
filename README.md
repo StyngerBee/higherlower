@@ -5,6 +5,8 @@ Based of the popular browser game of the same name, our rendition of Higher or L
 
 https://styngerbee.github.io/higherlower/
 
+<img src="./assets/images/Higher_Lower_Start.png">
+
 <img src="./assets/images/higher-lower-desktop.jpeg">
 
 <img src="./assets/images/higher-lower-mobile.jpeg" width="420" height="896">
