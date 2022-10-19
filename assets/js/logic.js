@@ -94,6 +94,11 @@ function renderSongCards(song1, song2){
     let songRank = document.getElementById("song-rank");
 
     songName_1.textContent = song1.trackMetadata.trackName;
+
+    // trends.js called now
+    localStorage.setItem('songName', song1.trackMetadata.trackName); // test
+    fetchTrends();
+
     artistName_1.textContent = song1.trackMetadata.artists[0].name;
     songRank.textContent = `Rank : ${song1.chartEntryData.currentRank}`;
     
