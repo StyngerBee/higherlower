@@ -2,7 +2,7 @@
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '211bb863eemsh3f9d5c4defa0f4dp16d6a1jsn4dbcefde1009',
+		'X-RapidAPI-Key': '3b1c514fd5msh008f6b5969378c2p1fc1b8jsnc954fe15b8f8',
 		'X-RapidAPI-Host': 'spotify81.p.rapidapi.com'
 	}
 };
@@ -41,11 +41,6 @@ fetch('https://spotify81.p.rapidapi.com/top_200_tracks', options)
                         console.log("Second: " + card_2.dataset.index);
                     }else if(correct === false){
                         return
-                        song_1 = data[getRandomIndex().firstIndex];
-                        song_2 = data[getRandomIndex().secondIndex];
-                        (renderSongCards(song_1, song_2));
-                        console.log("First: " + card_1.dataset.index);
-                        console.log("Second: " + card_2.dataset.index);
                     };
                         console.log(song_1);
                         console.log(song_2);
