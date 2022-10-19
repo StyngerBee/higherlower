@@ -56,8 +56,28 @@ main {
     position: relative;
 }
 
+.popOverride {
+    width: 60%;
+    height: 60%;
+    border: solid #1db954;
+    border-width: calc(var(--artist-dims) * 0.2 * 0.02);
+    position: relative;
+}
+
+#backBtn {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+}
+
+canvas {
+    z-index: 3;
+}
+
 [class*="overlay"] {
     position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
     width: calc(var(--artist-dims) * 0.6);
     height: calc(var(--artist-dims) * 0.2);
     background-image: linear-gradient(#00000000, #00000099);
@@ -73,21 +93,56 @@ main {
     z-index: 2;
 }
 
-
 #song-name-1, #song-name-2 {
     font-weight: bold;
     font-size: calc(var(--artist-dims) * 0.05);
-    padding-top: calc(var(--artist-dims) * 0.2 * 0.4);
+    padding-bottom: calc(var(--artist-dims) * 0.2 * 0.075);
 }
 
+.space-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+button {
+    background-color: #00000080;
+    color: #1db954;
+    border: solid #1db954;
+    border-width: calc(var(--artist-dims) * 0.2 * 0.02);
+    font-size: calc(var(--artist-dims) * 0.025);
+    padding: auto;
+}
 
 #artist-name-1, #artist-name-2{
     font-size: calc(var(--artist-dims) * 0.025);
-    padding-top: calc(var(--artist-dims) * 0.2 * 0.075);
+    padding-bottom: calc(var(--artist-dims) * 0.2 * 0.15);
 }
 
 .overlay-1 {
     bottom: calc(var(--artist-dims) * 0.2);
+}
+
+.back, .front.flipped {
+    transform: scaleY(0);
+}
+
+.back.flipped, .front {
+    transform: scaleY(1);
+}
+
+.front, .back {
+    transition: transform 0.25s ease-in-out;
+}
+
+.black-bg {
+    background-color: black; 
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .artist-box {
@@ -221,16 +276,19 @@ main {
         padding-left: calc(var(--artist-dims-diff) * 0.2 * 0.1);
     }
 
-
     #song-name-1, #song-name-2{
         font-size: calc(var(--artist-dims-diff) * 0.05);
-        padding-top: calc(var(--artist-dims-diff) * 0.2 * 0.4);
+        padding-bottom: calc(var(--artist-dims-diff) * 0.2 * 0.075);
     }
-    
+
+    button {
+        border-width: calc(var(--artist-dims-diff) * 0.2 * 0.02);
+        font-size: calc(var(--artist-dims-diff) * 0.025);
+    }
 
     #artist-name-1, #artist-name-2 {
         font-size: calc(var(--artist-dims-diff) * 0.025);
-        padding-top: calc(var(--artist-dims-diff) * 0.2 * 0.075);
+        padding-bottom: calc(var(--artist-dims-diff) * 0.2 * 0.15);
     }
 
     .rank > h2 {
@@ -238,7 +296,13 @@ main {
     }
 
     .overlay-1 {
-        bottom: calc(((var(--artist-dims) - var(--artist-dims-diff))/ 2) + (var(--artist-dims-diff) * 0.2));
+        /* bottom: calc(((var(--artist-dims) - var(--artist-dims-diff))/ 2) + (var(--artist-dims-diff) * 0.2)); */
+        bottom: calc(var(--artist-dims-diff) * 0.2);
+    }
+
+    .black-bg {
+        height: var(--artist-dims-diff);
+        margin: auto 0;
     }
 
     .artist-box {
@@ -289,9 +353,16 @@ main {
         height: calc(var(--artist-dims-diff) * .6);
     }
 
+    .black-bg {
+        height: 100%;
+        margin: auto 0;
+        position: absolute;
+    }
+
     .artist-box {
         height: 100%;
         margin: auto 0;
+        position: absolute;
     }
 
     [class*="overlay"] {
@@ -304,14 +375,19 @@ main {
         padding-left: calc(var(--artist-dims-diff) * 0.2 * 0.1);
     }
 
-    #song-name-1, #song-name-2 {
+    #song-name-1, #song-name-2{
         font-size: calc(var(--artist-dims-diff) * 0.05);
-        padding-top: calc(var(--artist-dims-diff) * 0.2 * 0.4);
+        padding-bottom: calc(var(--artist-dims-diff) * 0.2 * 0.075);
     }
     
+    button {
+        border-width: calc(var(--artist-dims-diff) * 0.2 * 0.02);
+        font-size: calc(var(--artist-dims-diff) * 0.025);
+    }
+
     #artist-name-1, #artist-name-2 {
         font-size: calc(var(--artist-dims-diff) * 0.025);
-        padding-top: calc(var(--artist-dims-diff) * 0.2 * 0.075);
+        padding-bottom: calc(var(--artist-dims-diff) * 0.2 * 0.15);
     }
 
     .rank > h2 {

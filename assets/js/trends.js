@@ -125,3 +125,44 @@ function createChart() {
     });
     // Learned from https://stackoverflow.com/questions/69879271/working-with-multiple-date-axes-in-chartjs 
 }
+
+var buttonEl = document.querySelector('#popBtn');
+var firstBox = document.querySelector('.front');
+var secondBox = document.querySelector('.back');
+
+function updateButton(idTag) {
+    if (idTag === '#popBtn') {
+        buttonEl = document.querySelector('#backBtn');
+        buttonEl.addEventListener("click", toggleSwitch);
+        console.log("back activated");
+    } else {
+        buttonEl = document.querySelector('#popBtn');
+        buttonEl.addEventListener("click", toggleSwitch);
+        console.log("pop activated");
+    }
+}
+
+function toggleSwitch(event) {
+    if (event.target.tagName === 'BUTTON') {
+        if (firstBox.style.display === "flex") {
+            firstBox.classList.toggle('flipped');
+            setTimeout(function () {
+                firstBox.style.display = "none";
+                secondBox.style.display = "flex";
+                secondBox.classList.toggle('flipped');
+            }, 250);
+        } else {
+            firstBox.classList.toggle('flipped');
+            setTimeout(function () {
+                firstBox.style.display = "flex";
+                secondBox.style.display = "none";
+                secondBox.classList.toggle('flipped');
+            }, 250);
+        }
+        var idTag = "#" + event.target.id;
+        console.log(event.target);
+        updateButton(idTag);
+    }
+}
+
+buttonEl.addEventListener("click", toggleBasic);
