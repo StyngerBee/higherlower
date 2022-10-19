@@ -1,35 +1,49 @@
 # higherlower
-A higher or lower game based on musical artists and their popularity.
+Based of the popular browser game of the same name, our rendition of Higher or Lower has the user guess which songs rank higher or lower on spotify’s top 200 chart.
+
+## Preview
+
+https://styngerbee.github.io/higherlower/
+
+<img src="./assets/images/higher-lower-desktop.jpeg">
+
+<img src="./assets/images/higher-lower-mobile.jpeg" width="420" height="896">
+
+View on mobile
 
 ## Description
 
-Our motivation for creating this project was a mutual idea that our group came up with that we thought would be challenging and fun to create. We built this project because we wanted to put the skills that we have learned so far to the test and see how well we could make our idea a reality. This project helped us better impliment the skills that we have learned over the past few weeks and also gain a better understanding on how to use them when writing our code. Creating this project we learned how better team building skills, layout planning and organization and also how to communicate more efficiently with our other group members.
+The motivation behind the project was to test our current knowledge on API’s, and to create a fun, interactive, and unique game with that knowledge. This project helped us better implement the skills that we have learned over the past few weeks and also gain a better understanding on how to use them when programming. Through the creation of this project we also developed better team skills, and learned how to communicate efficiently with our other group members.
 
-## Installation
-In order to utilize this application you must have any web browser installed. 
 
-## Usage
+## User Story
 
-To use this Higher||lower game, the users must first click on the "START" button and the game will begin. The users will be taken to the game page where their screen will be split with images of musical artists on both sides of the screen. The users will have the choice of choosing between the two musical artists on who they think would be the more popular of the two. If the users get the choice correct then the game will let the users that they have made the correct choice and the users score will gain "+1" point. If at any point the users make the wrong choice then the game will end and the users will be taken to the "Results" page where they can view their final score and enter their intitials to be placed on the leaderboard. Once the users initials have been entered they will be then taken to the "Leaderboard" page where they can view both their results and the reults of other users that have played the game. Finally users will then have the choice of either ending the game completely or playing again.
+- Given two songs to compare, with one rank revealed and the other one hidden.
+- I want to guess if the hidden rank is higher or lower than the revealed rank.
+- Then I press the up-arrow, for higher, and the down-arrow, for lower.
+- When correct, I am provided visual feedback,  a popularity widget and the next  comparison.
+- When I click the popularity widget, the card flips and the user is given a chart with data regarding the artist’s popularity.
+- When incorrect, I am provided visual feedback, a popularity widget and the game ends.
+- When the game ends, I am given a score and the option to enter a “username”.
+- Then I can save my score to the leaderboard, or play again. 
 
-## Credits
 
-### Collaborators
+## Collaborators
 - [https://github.com/StyngerBee]
 - [https://github.com/Binnyboy1]
 - [https://github.com/ken862734801]
 - [https://github.com/Zechariahmn]
 
-### API
-[https://www.npmjs.com/package/google-trends-api]
-[https://rapidapi.com/airaudoeduardo/api/spotify81]
+## API's 
+[Google Trends API](https://www.npmjs.com/package/google-trends-api)
 
-## URL
+[Spotify API](https://rapidapi.com/airaudoeduardo/api/spotify81)
+
 
 ## License 
 MIT License
 
-Copyright (c) 2022 Curran Duke
+Copyright (c) 2022 Curran Duke, Ian Binstock, Kenshaw Michaud, Zecharian Naitram
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
