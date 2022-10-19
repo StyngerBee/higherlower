@@ -236,17 +236,26 @@ function updateCardIncorrect(){
     }, 500);
 };
 
+// adds score to game screen
+const span = document.getElementById('displayScore');
+span.innerHTML = score;
+
+// Function to update the score
+function updateScore () {
+    span.innerHTML = score;
+}
+
 //Function to add a point to the user score.
 function incrementScore (){
     score ++;
     console.log(score)
-    return score
+    // return score
+    updateScore();
 };
 
 //Function to end game.
 function endGame(){
     setTimeout(function(){location.href="./assets/html/endpage.html"} , 1000);  
-}
 
 // Function to reset the game.
 function resetGame(){
