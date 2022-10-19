@@ -1,5 +1,5 @@
 # higherlower
-Based of the popular browser game of the same name, our rendition of Higher or Lower has the user guess which songs rank higher or lower on spotify’s top 200 chart.
+Based on the popular browser game of the same name, our rendition of Higher or Lower has the user guess which songs rank higher or lower on spotify’s top 200 chart.
 
 ## Preview
 
