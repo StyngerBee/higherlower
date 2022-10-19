@@ -46,6 +46,8 @@ function storeScores() {
     localStorage.setItem('initialsList', JSON.stringify(initialsList));
 
     localStorage.setItem('scores', JSON.stringify(scores));
+
+    document.location.href = "../html/highscores.html";
 }
 
 viewHighScores.addEventListener('click', function() {
