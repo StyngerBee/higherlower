@@ -441,13 +441,13 @@ button {
         top: calc(-1 * var(--circle-width)/2); 
     }
     
-}
-
-@media screen and (max-width: 662px) {
     .screenScore {
         position: static;
-        bottom: 10px;
         background-color: black;
-        padding-left: 300px;
+        text-align: right;
+
+        right: 0;
+        bottom: 0;
+        padding-right: 10px;
     }
 }
