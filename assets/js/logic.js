@@ -39,7 +39,8 @@ fetch('https://spotify81.p.rapidapi.com/top_200_tracks', options)
                         (renderSongCards(song_1, song_2));
                         console.log("First: " + card_1.dataset.index);
                         console.log("Second: " + card_2.dataset.index);
-                    }else{
+                    }else if(correct === false){
+                        return
                         song_1 = data[getRandomIndex().firstIndex];
                         song_2 = data[getRandomIndex().secondIndex];
                         (renderSongCards(song_1, song_2));
