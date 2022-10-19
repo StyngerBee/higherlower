@@ -2,7 +2,7 @@
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '3b1c514fd5msh008f6b5969378c2p1fc1b8jsnc954fe15b8f8',
+		'X-RapidAPI-Key': '211bb863eemsh3f9d5c4defa0f4dp16d6a1jsn4dbcefde1009',
 		'X-RapidAPI-Host': 'spotify81.p.rapidapi.com'
 	}
 };
@@ -41,6 +41,11 @@ fetch('https://spotify81.p.rapidapi.com/top_200_tracks', options)
                         console.log("Second: " + card_2.dataset.index);
                     }else if(correct === false){
                         return
+                        song_1 = data[getRandomIndex().firstIndex];
+                        song_2 = data[getRandomIndex().secondIndex];
+                        (renderSongCards(song_1, song_2));
+                        console.log("First: " + card_1.dataset.index);
+                        console.log("Second: " + card_2.dataset.index);
                     };
                         console.log(song_1);
                         console.log(song_2);
@@ -94,11 +99,6 @@ function renderSongCards(song1, song2){
     let songRank = document.getElementById("song-rank");
 
     songName_1.textContent = song1.trackMetadata.trackName;
-
-    // trends.js called now
-    localStorage.setItem('songName', song1.trackMetadata.trackName); // test
-    fetchTrends();
-
     artistName_1.textContent = song1.trackMetadata.artists[0].name;
     songRank.textContent = `Rank : ${song1.chartEntryData.currentRank}`;
     
@@ -124,6 +124,45 @@ function renderSongCards(song1, song2){
     card_2.appendChild(coverArt_2);
 }
 
+// // Function to render the information for the first artist/song.
+// function rendercard_1(data){
+//     //Clear the image container
+//     card_1.textContent = "";
+
+//     let songName_1 = document.getElementById("song-name-1");
+//     let artistName_1 = document.getElementById("artist-name-1");
+
+//     songName_1.textContent = data.trackMetadata.trackName;
+//     artistName_1.textContent = data.trackMetadata.artists[0].name;
+
+//     let coverArt = document.createElement("img");
+//     coverArt.style.width = "100%";
+//     coverArt.src = data.trackMetadata.displayImageUri;
+//     //Setting the data-index value to the current rank of the song.
+//     card_1.dataset.index = data.chartEntryData.currentRank;
+//     card_1.appendChild(coverArt);
+
+// };
+
+// // Function to render the information for the second artist/song.
+// function rendercard_2 (data){
+
+//     card_2.textContent = "";
+
+//     let songName_2 = document.getElementById("song-name-2");
+//     let artistName_2 = document.getElementById("artist-name-2");
+
+//     songName_2.textContent = data.trackMetadata.trackName;
+//     artistName_2.textContent = data.trackMetadata.artists[0].name;
+
+//     let coverArt = document.createElement("img");
+//     coverArt.style.width = "100%";
+//     coverArt.src = data.trackMetadata.displayImageUri;
+//     //Setting the data-index value to the current rank of the song.
+//     card_2.dataset.index = data.chartEntryData.currentRank;
+//     card_2.appendChild(coverArt);
+
+// };
 
 // Function to record user answer depending on if they click the up or down arrow.
 function getUserAnswer(e){
@@ -150,8 +189,6 @@ function compareSongRank(){
 		console.log("First: " + card_1.dataset.index);
 		console.log("Second: " + card_2.dataset.index);
         console.log("Higher is false.")
-    }else if(card_1_rank = card_2_rank){
-        higher = true;
     }
 };
 
@@ -216,12 +253,8 @@ function incrementScore (){
     updateScore();
 };
 
-
 //Function to end game.
 function endGame(){
-     localStorage.setItem('preIscore',score); 
-    setTimeout(function(){location.href="./assets/html/endpage.html"} , 1000); 
-     
+    setTimeout(function(){location.href="./assets/html/endpage.html"} , 1000);  
 };
-
 

@@ -1,0 +1,93 @@
+:root{
+    --bg-color: black;
+    --font-color: #1DB954;
+}
+
+body {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-image: url(../images/gradientBg.png);
+}
+
+button {
+    background: var(--bg-color);
+    color: var(--font-color);
+    font-size: 25px;
+    border-radius: 5px;
+}
+
+
+h2 {
+    font-size: 35px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+/* results section */
+form {
+    display: inline-flex;
+}
+
+h4 {
+    font-size: 25px;
+    margin: 20px 5px 20px 0;
+    color: black;
+}
+
+#initials {
+    font-size: 25px;
+    margin: auto 10px;
+    padding: 5px 10px;
+    border: 2px solid var(--bg-color);
+    color: #0c0c0c;
+}
+
+#submit {
+    font-size: 20px;
+    margin: auto 10px;
+    padding: 5px;
+    border-radius: 5px;
+    background: var(--bg-color);
+    color: var(--font-color);
+}
+/*---leaderboard css---*/
+#results, #high-scores {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    margin: 50px auto;
+    justify-content: center;
+    text-align: center;
+    width: auto;
+    color: #1DB954;
+}
+
+
+#all-scores {
+    margin: 20px auto;
+}
+
+#go-back{
+    padding: 10px;
+    margin: 10px;
+    color: var(--font-color);
+    background-color: var(--bg-color);
+}
+
+.scoresList {
+    font-size: 25px;
+    padding: 15px;
+    background: var(--bg-color);
+    width: 365px;
+    margin: auto;
+    list-style-position: inside;
+    text-align: left;
+}
+
+.scoresList:nth-child(odd) {
+    background: var(--bg-color);
+}

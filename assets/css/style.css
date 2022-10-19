@@ -1,6 +1,8 @@
 :root{ 
-    --green: #1DB954;
+    --lightgreen: #3ff77f;
+    --green: #1db954;
     --button-padding: calc((1vw + 1vh) / 2)
+    
 }
 
 main {
@@ -43,7 +45,11 @@ main {
     flex-direction: column;
     align-items: flex-end;
     justify-content: end;
+
+    box-shadow:inset 0 0 0 0 var(--lightgreen);
+    transition: ease-out 0.3s;
 }
+
 
 
 .text {
@@ -100,6 +106,7 @@ main {
 
         flex-direction: column;
         align-items: center;
+        
     }
 
     .text {
