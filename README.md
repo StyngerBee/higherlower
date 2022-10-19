@@ -1,9 +1,11 @@
 # higherlower
-Based of the popular browser game of the same name, our rendition of Higher or Lower has the user guess which songs rank higher or lower on spotify’s top 200 chart.
+Based on the popular browser game of the same name, our rendition of Higher or Lower has the user guess which songs rank higher or lower on spotify’s top 200 chart.
 
 ## Preview
 
 https://styngerbee.github.io/higherlower/
+
+<img src="./assets/images/Higher_Lower_Start.png">
 
 <img src="./assets/images/higher-lower-desktop.jpeg">
 
@@ -21,9 +23,9 @@ The motivation behind the project was to test our current knowledge on API’s, 
 - Given two songs to compare, with one rank revealed and the other one hidden.
 - I want to guess if the hidden rank is higher or lower than the revealed rank.
 - Then I press the up-arrow, for higher, and the down-arrow, for lower.
-- When correct, I am provided visual feedback,  a popularity widget and the next  comparison.
 - When I click the popularity widget, the card flips and the user is given a chart with data regarding the artist’s popularity.
-- When incorrect, I am provided visual feedback, a popularity widget and the game ends.
+- When correct, I am provided visual feedback, and the score is incremented.
+- When incorrect, I am provided visual feedback, and the game ends.
 - When the game ends, I am given a score and the option to enter a “username”.
 - Then I can save my score to the leaderboard, or play again. 
 
